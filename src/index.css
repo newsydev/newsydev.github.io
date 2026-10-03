@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #fff8f3;
+    color: #1e1b17;
+  }
+
+  /* Archival hairline borders & typography */
+  ::selection {
+    background-color: #d6401f;
+    color: #ffffff;
+  }
+}
+
+/* Custom scrollbar matching notebook aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5ece5;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfc7b5;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8f7069;
+}
+
+/* Engineering drafting grid background */
+.drafting-grid {
+  background-size: 4rem 4rem;
+  background-image: 
+    linear-gradient(to right, rgba(143, 112, 105, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(143, 112, 105, 0.08) 1px, transparent 1px);
+}
+
+.fine-grid {
+  background-size: 1rem 1rem;
+  background-image: 
+    linear-gradient(to right, rgba(143, 112, 105, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(143, 112, 105, 0.04) 1px, transparent 1px);
+}
+
+/* Highlighting marker style */
+.marker-highlight {
+  background: linear-gradient(104deg, rgba(246, 228, 123, 0.6) 0.9%, rgba(246, 228, 123, 0.9) 2.4%, rgba(246, 228, 123, 0.45) 98%);
+  padding: 0.1em 0.3em;
+  display: inline;
+}
+
+/* Pulse animation for telemetry status */
+@keyframes telemetry-ping {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-telemetry-pulse {
+  animation: telemetry-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
